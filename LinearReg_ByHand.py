@@ -16,19 +16,22 @@ class CreateDS:
         self.iteration = 0
         self.learning_rate = 0
 
+#INPUT DATA
     def instances(self):
         for i in range(self.n):
             self.datosX[i] = float(input("Input Data X" + str(i + 1) + " = "))
             self.datosY[i] = float(input("Input Data Y" + str(i + 1) + " = "))
-
+#SCALING
         for i in range(self.n):
             self.datosX_SD[i] = (self.datosX[i] - (sum(self.datosX) / self.n)) / st.stdev(self.datosX)
             self.datosY_SD[i] = (self.datosY[i] - (sum(self.datosY) / self.n)) / st.stdev(self.datosY)
 
+#INPUT DATA
     def iterateData(self):
         self.iteration = int(input("How many iterations you wanna perform? -->"))
         self.learning_rate = float(input("Learning rate? -->"))
 
+#OPTIMIZATION METHOD
     def gradient_descent(self, option):
         if option == 1:
             self.m_current = self.b_current =0
@@ -51,7 +54,7 @@ class CreateDS:
             b.append(self.b_current)
         return m, b
 
-        # print("m {}, b {}, iteration {}, cost {}".format(self.m_current, self.b_current, i, cost[i]))
+
 
 
 i = 0
